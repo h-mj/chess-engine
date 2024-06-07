@@ -4,18 +4,18 @@ type Piece uint8
 
 const (
 	NoPiece     = Piece(0)
-	WhitePawn   = Piece(White) | Piece(1<<1) | Piece(Pawn)<<2
-	WhiteKnight = Piece(White) | Piece(1<<1) | Piece(Knight)<<2
-	WhiteBishop = Piece(White) | Piece(1<<1) | Piece(Bishop)<<2
-	WhiteRook   = Piece(White) | Piece(1<<1) | Piece(Rook)<<2
-	WhiteQueen  = Piece(White) | Piece(1<<1) | Piece(Queen)<<2
-	WhiteKing   = Piece(White) | Piece(1<<1) | Piece(King)<<2
-	BlackPawn   = Piece(Black) | Piece(1<<1) | Piece(Pawn)<<2
-	BlackKnight = Piece(Black) | Piece(1<<1) | Piece(Knight)<<2
-	BlackBishop = Piece(Black) | Piece(1<<1) | Piece(Bishop)<<2
-	BlackRook   = Piece(Black) | Piece(1<<1) | Piece(Rook)<<2
-	BlackQueen  = Piece(Black) | Piece(1<<1) | Piece(Queen)<<2
-	BlackKing   = Piece(Black) | Piece(1<<1) | Piece(King)<<2
+	WhitePawn   = Piece(White) | Piece(Pawn)<<1
+	WhiteKnight = Piece(White) | Piece(Knight)<<1
+	WhiteBishop = Piece(White) | Piece(Bishop)<<1
+	WhiteRook   = Piece(White) | Piece(Rook)<<1
+	WhiteQueen  = Piece(White) | Piece(Queen)<<1
+	WhiteKing   = Piece(White) | Piece(King)<<1
+	BlackPawn   = Piece(Black) | Piece(Pawn)<<1
+	BlackKnight = Piece(Black) | Piece(Knight)<<1
+	BlackBishop = Piece(Black) | Piece(Bishop)<<1
+	BlackRook   = Piece(Black) | Piece(Rook)<<1
+	BlackQueen  = Piece(Black) | Piece(Queen)<<1
+	BlackKing   = Piece(Black) | Piece(King)<<1
 )
 
 func (p Piece) Color() Color {
@@ -23,11 +23,11 @@ func (p Piece) Color() Color {
 }
 
 func (p Piece) PieceType() PieceType {
-	return PieceType(p >> 2)
+	return PieceType(p >> 1)
 }
 
 func (p Piece) Identifier() string {
-	const pieceIdentifiers = "-?Pp??Nn??Bb??Rr??Qq??Kk"
+	const pieceIdentifiers = "- PpNnBbRrQqKk"
 
 	return string(pieceIdentifiers[p])
 }

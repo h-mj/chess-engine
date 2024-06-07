@@ -3,7 +3,8 @@ package board
 type PieceType uint8
 
 const (
-	Pawn PieceType = iota
+	NoPieceType PieceType = iota
+	Pawn
 	Knight
 	Bishop
 	Rook
